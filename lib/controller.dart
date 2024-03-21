@@ -9,9 +9,13 @@ class OnboardingController extends GetxController {
   }
 
   animateToNextSlide() {
-    Future.delayed(
-        const Duration(milliseconds: 1500), () => Get.to(() => const SplashPage()));
-    Future.delayed(
-        const Duration(milliseconds: 5300), () => Get.offAll(() => const OnBoardingPage()));
+    Future.delayed(const Duration(milliseconds: 1500),
+        () => Get.to(() => const OnBoardingPage()));
+  }
+
+  animateToHome() {
+    Get.to(() => const SplashPage());
+    Future.delayed(const Duration(milliseconds: 3800),
+        () => Get.to(() => const HomePage()));
   }
 }

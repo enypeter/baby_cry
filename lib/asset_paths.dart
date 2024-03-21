@@ -17,7 +17,9 @@ class AppImages {
   static const String baby3 = "$_pngPath/baby3.png";
   static const String baby4 = "$_pngPath/baby4.png";
 
-
   //svg images
-
+  static const String notification = "$_svgPath/notification.svg";
+  static const String commulative = "$_svgPath/cummulative.svg";
+  static const String longest = "$_svgPath/longest.svg";
+  static const String number = "$_svgPath/number.svg";
 }
