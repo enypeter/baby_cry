@@ -26,8 +26,9 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  small20VerticalSpace(),
                   const CalenderSelector(),
+                  small30VerticalSpace(),
+
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppConstant.BODY_PADDING),
