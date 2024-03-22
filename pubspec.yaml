@@ -38,6 +38,7 @@ dependencies:
   get:
   flutter_svg:
   intl:
+  flutter_screenutil:
 
 
 dev_dependencies:

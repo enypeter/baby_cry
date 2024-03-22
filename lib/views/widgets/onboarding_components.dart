@@ -13,7 +13,7 @@ Row carouselIndicator(
             (index) => Container(
           height: 6,
           width: index == activeIndex ? 16 : 6,
-          margin: const EdgeInsets.all(1),
+          margin: const EdgeInsets.all(1.5),
           decoration: BoxDecoration(
               color: index == activeIndex
                   ? activeColor

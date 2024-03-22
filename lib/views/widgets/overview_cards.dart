@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ubenwa_peter/app_theme.dart';
 import 'package:ubenwa_peter/app_typography.dart';
 import 'package:ubenwa_peter/constants/dimensions.dart';
@@ -23,7 +24,7 @@ class OverviewCard extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppColors.color132C84, width: 0.5)),
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        padding:  EdgeInsets.symmetric(horizontal: 12.w, vertical: 20.h),
         child: Column(
           children: [
             Row(

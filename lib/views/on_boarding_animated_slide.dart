@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ubenwa_peter/app_theme.dart';
 import 'package:ubenwa_peter/app_typography.dart';
@@ -120,13 +121,15 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
               ),
             ),
           ),
+          small30VerticalSpace(),
+
           carouselIndicator(
               length: 4,
               activeIndex: onboardingController.currentPage.value,
               activeColor: Color(onboardingController
                   .onBoardingPageData[onboardingController.currentPage.value]
                   .focusColor)),
-          small30VerticalSpace(),
+          small20VerticalSpace(),
           DescriptionBox(
             description: onboardingController
                 .onBoardingPageData[onboardingController.currentPage.value]
@@ -142,7 +145,7 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
               ? DefaultButton(
                   onTap: () => onboardingController.animateToHome(),
                   title: 'Get Started')
-              : const SizedBox(height: 80),
+              :  SizedBox(height: 70.h),
           largeVerticalSpace(0.06),
           Row(
             children: [

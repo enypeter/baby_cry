@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                           value: '45',
                           color: AppColors.color14833D,
                         ),
-                        small15HorizontalSpace(),
+                        small10HorizontalSpace(),
                         const OverviewCard(
                           title: 'Longest Cry Duration',
                           bottomTitle: '20% worst than yesterday',
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                           color: AppColors.colorD60F0F,
                           value: '30mins',
                         ),
-                        small15HorizontalSpace(),
+                        small10HorizontalSpace(),
                         const OverviewCard(
                           title: 'Cumulative Cry Duration',
                           bottomTitle: '20% better than yesterday',
@@ -194,6 +194,8 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  small10VerticalSpace(),
+
                 ],
               ),
             )
