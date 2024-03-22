@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ubenwa_peter/app_theme.dart';
-import 'package:ubenwa_peter/constants/asset_paths.dart';
 import 'package:ubenwa_peter/controllers/cry_record_controller.dart';
 import 'package:ubenwa_peter/controllers/on_boarding_controller.dart';
-import 'package:ubenwa_peter/constants/dimensions.dart';
-import 'package:ubenwa_peter/helpers/image_holder.dart';
 import 'package:ubenwa_peter/views/splash_page.dart';
-import 'dart:math' as math;
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'ubenwa_peter',
       theme: ThemeData(
         fontFamily: 'Inter',
         primaryColor: AppColors.primaryBlue,
