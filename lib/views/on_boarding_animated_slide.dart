@@ -57,9 +57,8 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
     return GetX<OnboardingController>(
       builder: (onboardingController) => Column(
         children: [
-          small30VerticalSpace(),
           SizedBox(
-            height: height() * 0.4,
+            height: height() * 0.45,
             child: GestureDetector(
               onPanUpdate: (v) => _handleDrag(),
               onPanEnd: (v) => onboardingController.animateToNextPage(),
@@ -77,7 +76,7 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
                                 .centerImage,
                             key: UniqueKey(),
                             width: 200,
-                            height: 200),
+                            height:  height() * 0.2),
                       ),
                     ),
                   ),

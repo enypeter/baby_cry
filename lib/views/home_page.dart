@@ -156,7 +156,9 @@ class HomePage extends StatelessWidget {
                                       ),
                                     )
                                   ],
-                                )
+                                ),
+                                small10VerticalSpace(),
+
                               ],
                             )),
                         small15HorizontalSpace(),

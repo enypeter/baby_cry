@@ -5,7 +5,7 @@ import 'package:ubenwa_peter/controllers/on_boarding_controller.dart';
 RelativeRectTween relativeRectTween(int position, Animation<double> animation,
     OnboardingController onBoardingController) {
   final size = Get.size;
-  final height = size.height * 0.4;
+  final height = size.height * 0.45;
   final width = size.width;
 
   final positions = [
