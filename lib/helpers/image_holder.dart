@@ -11,6 +11,7 @@ class ImageHolder extends StatelessWidget {
     this.fit = BoxFit.contain,
     this.borderRadius,
     this.alignment,
+    this.imageKey,
     this.matchTextDirection,
   });
 
@@ -19,6 +20,7 @@ class ImageHolder extends StatelessWidget {
   final double? width;
   final BoxFit fit;
   final Color? color;
+  final Key? imageKey;
   final BorderRadius? borderRadius;
   final Alignment? alignment;
   final bool? matchTextDirection;
@@ -29,6 +31,7 @@ class ImageHolder extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      key: imageKey,
       colorFilter:
       color == null ? null : ColorFilter.mode(color!, BlendMode.srcIn),
       matchTextDirection: matchTextDirection ?? false)
@@ -37,5 +40,6 @@ class ImageHolder extends StatelessWidget {
       height: height,
       fit: fit,
       color: color,
+      key: imageKey,
       matchTextDirection: matchTextDirection ?? false);
 }
