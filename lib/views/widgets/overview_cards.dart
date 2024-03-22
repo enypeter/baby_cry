@@ -39,6 +39,7 @@ class OverviewCard extends StatelessWidget {
                 style: TextStyles.style20ExtraBold),
             small10VerticalSpace(),
             Text(bottomTitle,
+                textAlign: TextAlign.center,
                 style: TextStyles.style7Regular.copyWith(color: color)),
           ],
         ),
