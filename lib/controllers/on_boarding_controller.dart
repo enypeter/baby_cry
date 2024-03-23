@@ -10,6 +10,8 @@ class OnboardingController extends GetxController {
   RxDouble angle = 0.0.obs;
   RxDouble oldAngle = 0.0.obs;
   RxDouble angleDelta = 0.0.obs;
+  RxDouble initial = 0.0.obs;
+  RxDouble distance = 0.0.obs;
   RxBool forward = true.obs;
 
   @override

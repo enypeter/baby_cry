@@ -61,8 +61,24 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
           SizedBox(
             height: height() * 0.45,
             child: GestureDetector(
-              onPanUpdate: (v) => _handleDrag(),
-              onPanEnd: (v) => onboardingController.animateToNextPage(),
+              onVerticalDragUpdate: (v) => print(v),
+              onPanStart: (DragStartDetails details) {
+                onboardingController.initial.value = details.globalPosition.dx;
+              },
+              onPanUpdate: (DragUpdateDetails details) {
+                onboardingController.distance.value =
+                    details.globalPosition.dx -
+                        onboardingController.initial.value;
+              },
+              onPanEnd: (v) {
+                if (onboardingController.distance.value.isNegative) {
+                  _handleDrag();
+                  onboardingController.animateToNextPage();
+                } else {
+                  _handleDrag();
+                  onboardingController.animateToPreviousPage();
+                }
+              },
               child: Stack(
                 children: <Widget>[
                   Center(
@@ -77,7 +93,7 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
                                 .centerImage,
                             key: UniqueKey(),
                             width: 200,
-                            height:  height() * 0.2),
+                            height: height() * 0.2),
                       ),
                     ),
                   ),
@@ -122,7 +138,6 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
             ),
           ),
           small30VerticalSpace(),
-
           carouselIndicator(
               length: 4,
               activeIndex: onboardingController.currentPage.value,
@@ -139,13 +154,12 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
                 .title,
           ),
           small20VerticalSpace(),
-
           onboardingController.currentPage.value ==
                   onboardingController.onBoardingPageData.length - 1
               ? DefaultButton(
                   onTap: () => onboardingController.animateToHome(),
                   title: 'Get Started')
-              :  SizedBox(height: 70.h),
+              : SizedBox(height: 70.h),
           largeVerticalSpace(0.06),
           Row(
             children: [
@@ -175,7 +189,4 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
       ),
     );
   }
-
-
-
 }
