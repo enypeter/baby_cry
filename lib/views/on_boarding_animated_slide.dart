@@ -61,7 +61,6 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
           SizedBox(
             height: height() * 0.45,
             child: GestureDetector(
-              onVerticalDragUpdate: (v) => print(v),
               onPanStart: (DragStartDetails details) {
                 onboardingController.initial.value = details.globalPosition.dx;
               },
