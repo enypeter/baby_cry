@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:ubenwa_peter/constants/asset_paths.dart';
 import 'package:ubenwa_peter/models/on_boarding_model.dart';
 import 'package:ubenwa_peter/views/home_page.dart';
-import 'package:ubenwa_peter/views/on_boarding_page.dart';
 import 'package:ubenwa_peter/views/loading_page.dart';
 
 class OnboardingController extends GetxController {
@@ -14,11 +13,6 @@ class OnboardingController extends GetxController {
   RxDouble distance = 0.0.obs;
   RxBool forward = true.obs;
 
-  @override
-  onInit() {
-    loadSplash();
-    super.onInit();
-  }
 
   animateToNextPage() {forward(true);
     if (currentPage.value < onBoardingPageData.length - 1) {
@@ -70,10 +64,6 @@ class OnboardingController extends GetxController {
     ),
   ];
 
-  loadSplash() {
-    Future.delayed(const Duration(milliseconds: 1500),
-        () => Get.to(() => const OnBoardingPage()));
-  }
 
   animateToHome() {
     Get.to(() => const LoadingPage());

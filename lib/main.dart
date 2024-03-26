@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:ubenwa_peter/app_theme.dart';
 import 'package:ubenwa_peter/controllers/cry_record_controller.dart';
 import 'package:ubenwa_peter/controllers/on_boarding_controller.dart';
-import 'package:ubenwa_peter/views/splash_page.dart';
+import 'package:ubenwa_peter/views/on_boarding_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -33,8 +33,10 @@ class MyApp extends StatelessWidget {
               Get.put(OnboardingController());
               Get.put(CryRecordController());
             },
-            home: const SplashPage(),
+            home: const OnBoardingPage(),
           );
         });
   }
 }
+
+//stubs

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ubenwa_peter/app_theme.dart';
-import 'package:ubenwa_peter/app_typography.dart';
-import 'package:ubenwa_peter/controllers/on_boarding_controller.dart';
 import 'package:ubenwa_peter/constants/dimensions.dart';
+import 'package:ubenwa_peter/controllers/on_boarding_controller.dart';
 import 'package:ubenwa_peter/helpers/image_holder.dart';
 import 'package:ubenwa_peter/helpers/onboarding_animation_relative_position.dart';
 import 'package:ubenwa_peter/views/widgets/custom_button.dart';
@@ -20,12 +19,13 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
+  final int animationSpeed = 2000;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 400),
+      duration: Duration(milliseconds: animationSpeed),
       vsync: this,
     );
 
@@ -84,7 +84,7 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
                     child: Padding(
                       padding: const EdgeInsets.all(25.0),
                       child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 400),
+                        duration: Duration(milliseconds: animationSpeed),
                         child: ImageHolder(
                             imagePath: onboardingController
                                 .onBoardingPageData[
