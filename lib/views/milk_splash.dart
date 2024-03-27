@@ -14,12 +14,13 @@ class _MilkAnimationState extends State<MilkAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   double initialHeight = 50;
+  int delayDuration = 1140;
   Color bgColor = AppColors.primaryBlue;
 
   @override
   void initState() {
     updateAfterAnimation();
-    Future.delayed(const Duration(milliseconds: 1140), () {
+    Future.delayed( Duration(milliseconds: delayDuration), () {
       _controller.forward();
     });
     _controller = AnimationController(

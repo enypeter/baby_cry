@@ -19,7 +19,7 @@ class _OnboardingAnimationState extends State<OnboardingAnimation>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
-  final int animationSpeed = 2000;
+  final int animationSpeed = 1200;
 
   @override
   void initState() {
