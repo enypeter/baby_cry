@@ -17,6 +17,9 @@ class AppImages {
   static const String baby3 = "$_pngPath/baby3.png";
   static const String baby4 = "$_pngPath/baby4.png";
   static const String cryTime = "$_pngPath/cryTime.png";
+  static const String drop = "$_pngPath/drop.png";
+  static const String splash = "$_pngPath/splash.png";
+  static const String bottle = "$_pngPath/bottle.png";
 
   //svg images
   static const String challenge = "$_svgPath/challenge.svg";

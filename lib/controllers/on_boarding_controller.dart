@@ -67,7 +67,7 @@ class OnboardingController extends GetxController {
 
   animateToHome() {
     Get.to(() => const LoadingPage());
-    Future.delayed(const Duration(milliseconds: 3800),
+    Future.delayed(const Duration(milliseconds: 1720),
         () => Get.to(() => const HomePage()));
   }
 }

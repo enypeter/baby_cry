@@ -1,75 +1,76 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ubenwa_peter/app_theme.dart';
+import 'package:ubenwa_peter/constants/asset_paths.dart';
+import 'package:ubenwa_peter/constants/dimensions.dart';
+import 'package:ubenwa_peter/helpers/image_holder.dart';
+import 'package:ubenwa_peter/views/widgets/bottle_drop.dart';
 
-class MilkSplashScreen extends StatefulWidget {
-  const MilkSplashScreen({super.key});
-
+class MilkAnimation extends StatefulWidget {
   @override
-  State<MilkSplashScreen> createState() => _MilkSplashScreenState();
+  _MilkAnimationState createState() => _MilkAnimationState();
 }
 
-class _MilkSplashScreenState extends State<MilkSplashScreen> {
-  final containerHeight = Get.height;
-  double heightFactor = 0.2;
-  double maxCurve = 250;
-  double curveFactor = 0.3;
+class _MilkAnimationState extends State<MilkAnimation>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  double initialHeight = 50;
+  Color bgColor = AppColors.primaryBlue;
 
   @override
-  initState() {
-    increaseHeight();
+  void initState() {
+    updateAfterAnimation();
+    Future.delayed(const Duration(milliseconds: 1140), () {
+      _controller.forward();
+    });
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
     super.initState();
+
   }
 
-  increaseHeight() {
-    Timer.periodic(const Duration(milliseconds: 20), (timer) {
-      if (heightFactor > 0.50) {
-        timer.cancel();
-      } else {
-        heightFactor = heightFactor + 0.1;
-        curveFactor = curveFactor + 0.1;
-      }
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+
+  updateAfterAnimation() {
+    Future.delayed(const Duration(milliseconds: 1600), () {
+      setState(() {
+        initialHeight = 0;
+        bgColor = AppColors.white;
+      });
     });
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                end: Alignment.bottomCenter,
-                begin: Alignment.topCenter,
-                colors: [
-              AppColors.black.withOpacity(0.0),
-              AppColors.black.withOpacity(0.25),
-            ])),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 2000),
-              padding: EdgeInsets.zero,
-              curve: Curves.fastOutSlowIn,
-              width: Get.width,
-              height: containerHeight * heightFactor,
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        offset: Offset(-2, 2))
-                  ],
-                  borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(maxCurve * curveFactor))),
-            )
-          ],
-        ),
+      backgroundColor: bgColor,
+      body: Stack(
+        children: [
+          const AnimatedDrop(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              AnimatedBuilder(
+                  animation: _controller!,
+                  builder: (context, child) {
+                    return ImageHolder(
+                      imagePath: AppImages.splash,
+                      fit: BoxFit.fill,
+                      height: height() * _controller.value + initialHeight,
+                      alignment: Alignment.bottomCenter,
+                      width: width(),
+                    );
+                  }),
+            ],
+          )
+        ],
       ),
     );
   }
 }
+
